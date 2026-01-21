@@ -6,19 +6,19 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float Speed = 5.0f;
 
-    Rigidbody2D _rigidbody;
-    private float _horizontalDir; // Horizontal move direction value [-1, 1]
+    Rigidbody2D rigidbody;
+    private float horizontalDir; // Horizontal move direction value [-1, 1]
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.x = _horizontalDir * Speed;
-        _rigidbody.linearVelocity = velocity;
+        Vector2 velocity = rigidbody.linearVelocity;
+        velocity.x = horizontalDir * Speed;
+        rigidbody.linearVelocity = velocity;
     }
 
     // NOTE: InputSystem: "move" action becomes "OnMove" method
@@ -27,6 +27,6 @@ public class PlayerMove : MonoBehaviour
         // Read value from control, the type depends on what
         // type of controls the action is bound to
         var inputVal = value.Get<Vector2>();
-        _horizontalDir = inputVal.x;
+        horizontalDir = inputVal.x;
     }
 }
