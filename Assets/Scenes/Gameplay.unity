@@ -351,6 +351,8 @@ GameObject:
   - component: {fileID: 155923681}
   - component: {fileID: 155923687}
   - component: {fileID: 155923686}
+  - component: {fileID: 155923689}
+  - component: {fileID: 155923688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -419,8 +421,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.23
+  m_Offset: {x: 0, y: -0.3040626}
+  m_Radius: 0.5340626
 --- !u!212 &155923684
 SpriteRenderer:
   serializedVersion: 2
@@ -494,8 +496,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1918508236}
   - {fileID: 254180828}
+  - {fileID: 2143955438}
+  - {fileID: 1918508236}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &155923686
@@ -542,6 +545,65 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &155923688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155923679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6740e48fcf1cd874e9dc5fc1adc0e335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetection
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  WhatIsPlatform:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundCheckPoint: {fileID: 1918508236}
+  FrontCheckPoint: {fileID: 2143955438}
+  RoofCheckPoint: {fileID: 254180828}
+  CurrentPlatform: {fileID: 0}
+  isGrounded: 0
+  isTouchingFront: 0
+  isPlatformGround: 0
+  isTouchingRoof: 0
+  distanceToGround: 0
+  groundAngle: 0
+--- !u!114 &155923689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155923679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7a8a928bc0371439df916b74eb5e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
+  JumpHeight: 5
+  DistanceToMaxHeight: 1.5
+  SpeedHorizontal: 2
+  PressTimeToMaxJump: 0.5
+  WallSlideSpeed: 1
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1 &227829529
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +795,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.07941532, y: -0.09123373}
+  m_Offset: {x: -0.07941532, y: -0.016429052}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0.02}
     pivot: {x: 0.5, y: 0.5}
@@ -743,7 +805,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8.667967, y: 0.5468569}
+  m_Size: {x: 8.667967, y: 0.6964662}
   m_EdgeRadius: 0
 --- !u!212 &237608555
 SpriteRenderer:
@@ -3224,7 +3286,7 @@ Transform:
   m_GameObject: {fileID: 1918508235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.195, z: 0}
+  m_LocalPosition: {x: 0, y: -0.685, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3509,6 +3571,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2143955437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143955438}
+  m_Layer: 0
+  m_Name: FrontDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143955438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143955437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.289, y: -0.232, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155923685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
