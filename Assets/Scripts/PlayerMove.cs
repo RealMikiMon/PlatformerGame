@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float Speed = 5.0f;
+    public float Speed = 5.0f;
 
     Rigidbody2D rigidbody;
     private float horizontalDir; // Horizontal move direction value [-1, 1]
@@ -22,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     // NOTE: InputSystem: "move" action becomes "OnMove" method
-    void OnMove(InputValue value)
+    void OnMove(InputValue value)                                   //VE de move(Mapeig fet input System de Player)
     {
         // Read value from control, the type depends on what
         // type of controls the action is bound to
