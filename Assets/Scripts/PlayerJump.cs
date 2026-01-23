@@ -42,8 +42,13 @@ public class PlayerJump : MonoBehaviour
     // NOTE: InputSystem: "JumpFinished" action becomes "OnJumpFinished" method
     public void OnJumpFinished()
     {
-        float fractionOfTimePressed = 1 / Mathf.Clamp01((Time.time - jumpStartedTime) / PressTimeToMaxJump);
-        rigidbody.gravityScale *= fractionOfTimePressed;
+         if (rigidbody.linearVelocity.y > 0)
+    {
+        rigidbody.linearVelocity = new Vector2(
+            rigidbody.linearVelocity.x,
+            rigidbody.linearVelocity.y * 0.4f
+        );
+    }
     }
 
     private void OnDrawGizmosSelected()
@@ -80,12 +85,12 @@ public class PlayerJump : MonoBehaviour
 
     private void TweakGravity()
     {
-        rigidbody.gravityScale *= 1.2f; //Canviar velocitat de caiguda dsprs d'arriba a punt màxim y
+        rigidbody.gravityScale *= 1.2f; //Canviar velocitat de caiguda dsprs d'arriba a punt mï¿½xim y
     }
 
     private float GetJumpForce()
     {
-        return 2 * JumpHeight * SpeedHorizontal / DistanceToMaxHeight; //Logica de força de salt segons distancia
+        return 2 * JumpHeight * SpeedHorizontal / DistanceToMaxHeight; //Logica de forï¿½a de salt segons distancia
     }
 
     private float GetDistanceToGround()
