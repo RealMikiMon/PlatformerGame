@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7a8a928bc0371439df916b74eb5e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  JumpHeight: 5
+  JumpHeight: 2.5
   DistanceToMaxHeight: 1.5
   SpeedHorizontal: 2
   PressTimeToMaxJump: 0.5
@@ -627,6 +627,8 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   MaxJumps: 2
+  PowerUpJumpMultiplier: 1.5
+  PowerUpDuration: 10
 --- !u!70 &155923690
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3194,6 +3196,7 @@ GameObject:
   - component: {fileID: 1821473471}
   - component: {fileID: 1821473470}
   - component: {fileID: 1821473469}
+  - component: {fileID: 1821473472}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Untagged
@@ -3321,6 +3324,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821473472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821473468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876347ee7d0de1e4f9d70f65ad0c0869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUp
 --- !u!1 &1918508235
 GameObject:
   m_ObjectHideFlags: 0

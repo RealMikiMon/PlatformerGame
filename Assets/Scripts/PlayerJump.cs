@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
@@ -15,18 +16,25 @@ public class PlayerJump : MonoBehaviour
     private float lastVelocityY;
     private float jumpStartedTime;
 
+
     //
     public int MaxJumps = 2;   // nombre de salts permesos
     private int jumpCount = 1; // comptador intern
 
-
-
+    private float originalJumpHeight;
+    private Coroutine powerUpCoroutine;
+    public float PowerUpJumpMultiplier = 1.5f;
+    public float PowerUpDuration = 10f;
+   
     bool IsWallSliding => collisionDetection.IsTouchingFront;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collisionDetection = GetComponent<CollisionDetection>();
+
+        originalJumpHeight = JumpHeight;
+        PowerUp.OnPowerUpCollected += ActivateJumpPowerUp;
     }
 
     void FixedUpdate()
@@ -112,5 +120,27 @@ public class PlayerJump : MonoBehaviour
         Physics2D.Raycast(transform.position, Vector2.down, filter, hit, 10);
 
         return hit[0].distance;
+    }
+
+    private void ActivateJumpPowerUp(PowerUp powerUp)
+    {
+        if (powerUpCoroutine != null)
+            StopCoroutine(powerUpCoroutine);
+
+        powerUpCoroutine = StartCoroutine(JumpPowerUpCoroutine());
+    }
+
+    private IEnumerator JumpPowerUpCoroutine()
+    {
+        JumpHeight = originalJumpHeight * PowerUpJumpMultiplier;
+
+        yield return new WaitForSeconds(PowerUpDuration);
+
+        JumpHeight = originalJumpHeight;
+    }
+
+    private void OnDestroy()
+    {
+        PowerUp.OnPowerUpCollected -= ActivateJumpPowerUp;
     }
 }
