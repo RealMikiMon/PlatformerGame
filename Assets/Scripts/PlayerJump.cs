@@ -15,6 +15,12 @@ public class PlayerJump : MonoBehaviour
     private float lastVelocityY;
     private float jumpStartedTime;
 
+    //
+    public int MaxJumps = 2;   // nombre de salts permesos
+    private int jumpCount = 1; // comptador intern
+
+
+
     bool IsWallSliding => collisionDetection.IsTouchingFront;
 
     void Start()
@@ -25,6 +31,8 @@ public class PlayerJump : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (collisionDetection.IsGrounded) jumpCount = 1; 
+        
         if (IsPeakReached()) TweakGravity();
 
         if (IsWallSliding) SetWallSlide();
@@ -33,6 +41,10 @@ public class PlayerJump : MonoBehaviour
     // NOTE: InputSystem: "JumpStarted" action becomes "OnJumpStarted" method
     public void OnJumpStarted() //Es un back de Control en el moment que saltem fem reset gravetat x si la de terra fos major
     {
+        if (jumpCount >= MaxJumps) return; // no queden salts disponibles
+
+        jumpCount++; // consumim un salt
+
         SetGravity();                      //Seteja la gravetat 
         var velocity = new Vector2(rigidbody.linearVelocity.x, GetJumpForce());
         rigidbody.linearVelocity = velocity;
