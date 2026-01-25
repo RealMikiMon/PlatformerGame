@@ -15,6 +15,8 @@ public class Coin : MonoBehaviour
         
         OnCoinCollected?.Invoke(this);
 
+        AudioManager.instance.PlaySound("Coin");
+
         Destroy(gameObject);
     }
 }
