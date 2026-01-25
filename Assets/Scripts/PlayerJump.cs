@@ -144,9 +144,8 @@ public class PlayerJump : MonoBehaviour
         PowerUp.OnPowerUpCollected -= ActivateJumpPowerUp;
     }
 
-    private void OnExit()
+    public void OnExit()
     {
-        Debug.Log("Saliendo del juego");
         Application.Quit();
     }
 }

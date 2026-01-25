@@ -16,6 +16,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "fcc8cf55-0a0b-46c1-9adc-98d76bd1ce17",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "JumpFinished",
                     "type": "Button",
                     "id": "3beaf269-f651-4aed-8090-43c5f4c169c3",
@@ -43,6 +52,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "JumpStarted",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "067d2d59-dcd4-46a7-ac7b-e78de0de10f2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -177,7 +197,7 @@
                     "name": "New action",
                     "type": "Button",
                     "id": "abef2880-5995-4b32-ac8a-abdc6b8cbc4b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -188,34 +208,6 @@
                     "name": "",
                     "id": "f75cf9e4-52ec-4311-8ab0-4845aadd335b",
                     "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Exit",
-            "id": "3f8e25f4-89de-422f-b1b3-ec0379827b7a",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "2445fdfa-88bc-47dc-9098-2746aaee150e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "8060f9fb-6469-441a-bd37-16c8535502ba",
-                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
