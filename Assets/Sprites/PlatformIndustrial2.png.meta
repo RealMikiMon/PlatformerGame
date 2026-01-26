@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a7b15258f485004ab9e8a882f42eb87
+guid: 311ce223376baf34cabeb7d7421f0297
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 620628518437302283
-    second: dirt_ground_0
+      213: 2913129730694531734
+    second: PlatformIndustrial2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dirt_ground_0
+      name: PlatformIndustrial2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 1024
-        height: 127
+        y: 29
+        width: 70
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b00beea695aec9800800000000000000
-      internalID: 620628518437302283
+      spriteID: 69a4dae3e048d6820800000000000000
+      internalID: 2913129730694531734
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dirt_ground_0: 620628518437302283
+      PlatformIndustrial2_0: 2913129730694531734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
