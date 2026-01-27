@@ -16,11 +16,8 @@ public class PlayerJump : MonoBehaviour
     private float lastVelocityY;
     private float jumpStartedTime;
 
-
-    //
-    public int MaxJumps = 2;   // nombre de salts permesos
-    private int jumpCount = 1; // comptador intern
-
+    public int MaxJumps = 2;   
+    private int jumpCount = 1; 
     private float originalJumpHeight;
     private Coroutine powerUpCoroutine;
     public float PowerUpJumpMultiplier = 1.5f;
@@ -46,25 +43,22 @@ public class PlayerJump : MonoBehaviour
         if (IsWallSliding) SetWallSlide();
     }
 
-    // NOTE: InputSystem: "JumpStarted" action becomes "OnJumpStarted" method
-    public void OnJumpStarted() //Es un back de Control en el moment que saltem fem reset gravetat x si la de terra fos major
+    public void OnJumpStarted() 
     {
-        if (jumpCount >= MaxJumps) return; // no queden salts disponibles
+        if (jumpCount >= MaxJumps) return; 
 
-        jumpCount++; // consumim un salt
-
-        SetGravity();                      //Seteja la gravetat 
+        jumpCount++; 
+        SetGravity();                      
         var velocity = new Vector2(rigidbody.linearVelocity.x, GetJumpForce());
         rigidbody.linearVelocity = velocity;
         jumpStartedTime = Time.time;
     }
 
-    // NOTE: InputSystem: "JumpFinished" action becomes "OnJumpFinished" method
     public void OnJumpFinished()
     {
-         if (rigidbody.linearVelocity.y > 0)
-    {
-        rigidbody.linearVelocity = new Vector2(
+        if (rigidbody.linearVelocity.y > 0)
+        {
+            rigidbody.linearVelocity = new Vector2(
             rigidbody.linearVelocity.x,
             rigidbody.linearVelocity.y * 0.4f
         );
@@ -91,10 +85,8 @@ public class PlayerJump : MonoBehaviour
 
     private void SetWallSlide()
     {
-        // Modify player linear velocity on wall sliding
-        //rigidbody.gravityScale = 0.8f;
         rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x,
-            Mathf.Max(rigidbody.linearVelocity.y, -WallSlideSpeed));
+        Mathf.Max(rigidbody.linearVelocity.y, -WallSlideSpeed));
     }
 
     private void SetGravity()
@@ -105,12 +97,12 @@ public class PlayerJump : MonoBehaviour
 
     private void TweakGravity()
     {
-        rigidbody.gravityScale *= 1.2f; //Canviar velocitat de caiguda dsprs d'arriba a punt m�xim y
+        rigidbody.gravityScale *= 1.2f;
     }
 
     private float GetJumpForce()
     {
-        return 2 * JumpHeight * SpeedHorizontal / DistanceToMaxHeight; //Logica de for�a de salt segons distancia
+        return 2 * JumpHeight * SpeedHorizontal / DistanceToMaxHeight; 
     }
 
     private float GetDistanceToGround()
