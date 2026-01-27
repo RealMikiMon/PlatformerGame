@@ -53,9 +53,6 @@ public class CollisionDetection : MonoBehaviour
 
     void FixedUpdate()
     {
-        // NOTE: Physics are recommended to be updated at fixed time steps
-        // so logic is added to FixedUpdate() method
-
         CheckCollisions();
         CheckDistanceToGround();
     }
@@ -64,49 +61,32 @@ public class CollisionDetection : MonoBehaviour
     {
         CheckGrounded();
         CheckPlatformed();
-        CheckFront();
-        //CheckRoof();          // Enable check once a RoofCheckPoint has been set!
+        CheckFront(); 
     }
 
     private void CheckFront()
     {
         var colliders = Physics2D.OverlapCircleAll(FrontCheckPoint.position, checkRadius, WhatIsGround);
-
         isTouchingFront = (colliders.Length > 0);
-    }
-
-    private void CheckRoof()
-    {
-        var colliders = Physics2D.OverlapCircleAll(RoofCheckPoint.position, checkRadius, WhatIsGround);
-
-        isTouchingRoof = (colliders.Length > 0);
     }
 
     private void CheckGrounded()
     {
         var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, checkRadius, WhatIsGround);
-
         isGrounded = (colliders.Length > 0);
 
-        //if (!wasGrounded && isGrounded) SendMessage("OnLanding");
-        //wasGrounded = isGrounded;
     }
 
     private void CheckPlatformed()
     {
         var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, checkRadius, WhatIsPlatform);
-
         isPlatformGround = (colliders.Length > 0);
         if (isPlatformGround) CurrentPlatform = colliders[0].transform;
-
-        //if (!wasGrounded && isGrounded) SendMessage("OnLanding");
-        //wasGrounded = isGrounded;
     }
 
     private void CheckDistanceToGround()
     {
         RaycastHit2D hit = Physics2D.Raycast(GroundCheckPoint.position, Vector2.down, 100, WhatIsGround);
-
         distanceToGround = hit.distance;
         groundAngle = Vector2.Angle(hit.normal, new Vector2(1, 0));
     }
