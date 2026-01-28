@@ -8,7 +8,7 @@ public class PowerUp : MonoBehaviour
 {
     public static Action<PowerUp> OnPowerUpCollected;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D Other)
     {
         OnPowerUpCollected?.Invoke(this);
         Destroy(gameObject);

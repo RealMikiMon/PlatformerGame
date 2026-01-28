@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneHandler : MonoBehaviour
 {
-    public static SceneHandler instance;
+    public static SceneHandler Instance;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -23,7 +23,6 @@ public class SceneHandler : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Quitting game");
         Application.Quit();
     }
 

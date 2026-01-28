@@ -24,9 +24,9 @@ public class ScoreText : MonoBehaviour
         ScoreSystem.OnScoreUpdated -= UpdateScoreText;
     }
 
-    private void UpdateScoreText(int score)
+    private void UpdateScoreText(int Score)
     {
-        score.ToString();
-        label.text = "Score: " + score;
+        Score.ToString();
+        label.text = "Score: " + Score;
     }
 }

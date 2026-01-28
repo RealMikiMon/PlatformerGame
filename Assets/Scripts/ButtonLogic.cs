@@ -5,10 +5,10 @@ public class ButtonLogic : MonoBehaviour
 {
    public void NextScene()
     {
-        SceneHandler.instance.ChangeScene();
+        SceneHandler.Instance.ChangeScene();
     }
        public void QuitGame()
     {
-        SceneHandler.instance.Quit();
+        SceneHandler.Instance.Quit();
     }
 }

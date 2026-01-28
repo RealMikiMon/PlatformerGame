@@ -4,37 +4,36 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
-    public Sound [] sounds;
+    public static AudioManager Instance;
+    public Sound [] Sounds;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
 
-        foreach (Sound s in sounds)
+        foreach (Sound S in Sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+            S.source = gameObject.AddComponent<AudioSource>();
+            S.source.clip = S.clip;
 
-            s.source.volume = s.volume;
+            S.source.volume = S.volume;
         }
     }
 
     public void PlaySound (string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null) 
+        Sound S = Array.Find(Sounds, Sound => Sound.name == name);
+        if (S == null) 
         { 
-            Debug.LogWarning("Sound not find"); 
             return; 
         }
-        s.source.Play();
+        S.source.Play();
     }
 }

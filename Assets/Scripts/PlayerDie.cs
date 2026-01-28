@@ -15,8 +15,8 @@ public class PlayerDie : MonoBehaviour
         FloorContact.OnFloorContact -= PlayerDeath;
     }
 
-    private void PlayerDeath(FloorContact contact)
+    private void PlayerDeath(FloorContact Contact)
     {
-        SceneHandler.instance.ReloadScene();
+        SceneHandler.Instance.ReloadScene();
     }
 }

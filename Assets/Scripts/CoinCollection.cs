@@ -10,15 +10,15 @@ public class CoinCollection : MonoBehaviour
 
     public static Action<CoinCollection> OnCoinCollected;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D Other)
     {
         
         OnCoinCollected?.Invoke(this);
 
-        AudioManager.instance.PlaySound("Coin");
+        AudioManager.Instance.PlaySound("Coin");
         if (Value == 150)
         {
-            SceneHandler.instance.ChangeScene();
+            SceneHandler.Instance.ChangeScene();
         }
         Destroy(gameObject);
     }

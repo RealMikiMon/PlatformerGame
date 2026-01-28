@@ -7,9 +7,6 @@ public class ScoreSystem : MonoBehaviour
 {
     public int Score = 0;
 
-    //public delegate void OnScoredDelegate(int score);
-    //public static event OnScoredDelegate OnScored;
-
     public static Action<int> OnScoreUpdated;
 
     private void OnEnable()
@@ -22,9 +19,9 @@ public class ScoreSystem : MonoBehaviour
         CoinCollection.OnCoinCollected -= UpdateScore;
     }
 
-    private void UpdateScore(CoinCollection coin)
+    private void UpdateScore(CoinCollection Coin)
     {
-        Score += coin.Value;
+        Score += Coin.Value;
 
         OnScoreUpdated?.Invoke(Score);
     }
