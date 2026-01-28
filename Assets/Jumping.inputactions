@@ -16,6 +16,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "19080de3-abaf-40cb-a92d-70965a9e38cb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Exit",
                     "type": "Button",
                     "id": "fcc8cf55-0a0b-46c1-9adc-98d76bd1ce17",
@@ -52,6 +61,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "JumpStarted",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6da4dd3-fccd-41b5-838e-02e5d945c070",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

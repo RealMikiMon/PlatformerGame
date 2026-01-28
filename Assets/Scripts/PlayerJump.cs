@@ -140,4 +140,9 @@ public class PlayerJump : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OnReload()
+    {
+        SceneHandler.Instance.ReloadScene();
+    }
 }
