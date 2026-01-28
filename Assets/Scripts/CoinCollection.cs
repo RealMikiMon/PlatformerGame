@@ -16,6 +16,10 @@ public class Coin : MonoBehaviour
         OnCoinCollected?.Invoke(this);
 
         AudioManager.instance.PlaySound("Coin");
+        if (Value == 150)
+        {
+            SceneHandler.instance.ChangeScene();
+        }
 
         Destroy(gameObject);
     }
