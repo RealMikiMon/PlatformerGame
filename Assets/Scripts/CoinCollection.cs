@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Coin : MonoBehaviour
+public class CoinCollection : MonoBehaviour
 {
     public int Value = 5;
 
-    public static Action<Coin> OnCoinCollected;
+    public static Action<CoinCollection> OnCoinCollected;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,7 +20,6 @@ public class Coin : MonoBehaviour
         {
             SceneHandler.instance.ChangeScene();
         }
-
         Destroy(gameObject);
     }
 }

@@ -26,4 +26,9 @@ public class SceneHandler : MonoBehaviour
         Debug.Log("Quitting game");
         Application.Quit();
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

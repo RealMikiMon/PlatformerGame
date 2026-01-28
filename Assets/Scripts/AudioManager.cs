@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
     public Sound [] sounds;
 
     private void Awake()
@@ -27,7 +26,6 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
         }
     }
-
 
     public void PlaySound (string name)
     {

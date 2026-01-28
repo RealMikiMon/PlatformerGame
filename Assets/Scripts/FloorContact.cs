@@ -4,15 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PowerUp : MonoBehaviour
+public class FloorContact : MonoBehaviour
 {
-    public static Action<PowerUp> OnPowerUpCollected;
+    public static event Action<FloorContact> OnFloorContact;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        OnPowerUpCollected?.Invoke(this);
-        Destroy(gameObject);
+        OnFloorContact?.Invoke(this);
     }
 }
-
-
