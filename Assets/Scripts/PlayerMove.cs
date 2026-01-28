@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed = 5.0f;
-
     Rigidbody2D rigidbody;
     private float horizontalDir;
     
