@@ -12,9 +12,7 @@ public class CoinCollection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Other)
     {
-        
         OnCoinCollected?.Invoke(this);
-
         AudioManager.Instance.PlaySound("Coin");
         if (Value == 150)
         {

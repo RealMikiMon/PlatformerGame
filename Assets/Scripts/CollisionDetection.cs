@@ -6,39 +6,30 @@ public class CollisionDetection : MonoBehaviour
     private LayerMask WhatIsGround;
     [SerializeField]
     private LayerMask WhatIsPlatform;
-
     [SerializeField]
     private Transform GroundCheckPoint;
     [SerializeField]
     private Transform FrontCheckPoint;
     [SerializeField]
     private Transform RoofCheckPoint;
-
     public Transform CurrentPlatform;
-
     private float checkRadius = 0.15f;
     private bool wasGrounded;
-
     [SerializeField]
     private bool isGrounded;
     public bool IsGrounded { get { return isGrounded || isPlatformGround; } }
-
     [SerializeField]
     private bool isTouchingFront;
     public bool IsTouchingFront { get { return isTouchingFront; } }
-
     [SerializeField]
     private bool isPlatformGround;
     public bool IsPlatForm { get { return isPlatformGround; } }
-
     [SerializeField]
     private bool isTouchingRoof;
     public bool IsTouchingRoof { get { return isTouchingRoof; } }
-
     [SerializeField]
     private float distanceToGround;
     public float DistanceToGround { get { return distanceToGround; } }
-
     [SerializeField]
     private float groundAngle;
     public float GroundAngle { get { return groundAngle; } }
@@ -74,7 +65,6 @@ public class CollisionDetection : MonoBehaviour
     {
         var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, checkRadius, WhatIsGround);
         isGrounded = (colliders.Length > 0);
-
     }
 
     private void CheckPlatformed()

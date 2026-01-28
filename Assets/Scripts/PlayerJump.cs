@@ -23,13 +23,12 @@ public class PlayerJump : MonoBehaviour
     public float PowerUpJumpMultiplier = 1.5f;
     public float PowerUpDuration = 10f;
    
-    bool IsWallSliding => collisionDetection.IsTouchingFront;
+    public bool IsWallSliding => collisionDetection.IsTouchingFront;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collisionDetection = GetComponent<CollisionDetection>();
-
         originalJumpHeight = JumpHeight;
         PowerUp.OnPowerUpCollected += ActivateJumpPowerUp;
     }
@@ -37,16 +36,13 @@ public class PlayerJump : MonoBehaviour
     void FixedUpdate()
     {
         if (collisionDetection.IsGrounded) jumpCount = 1; 
-        
         if (IsPeakReached()) TweakGravity();
-
         if (IsWallSliding) SetWallSlide();
     }
 
     public void OnJumpStarted() 
     {
         if (jumpCount >= MaxJumps) return; 
-
         jumpCount++; 
         SetGravity();                      
         var velocity = new Vector2(rigidbody.linearVelocity.x, GetJumpForce());
@@ -58,11 +54,8 @@ public class PlayerJump : MonoBehaviour
     {
         if (rigidbody.linearVelocity.y > 0)
         {
-            rigidbody.linearVelocity = new Vector2(
-            rigidbody.linearVelocity.x,
-            rigidbody.linearVelocity.y * 0.4f
-        );
-    }
+            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x,rigidbody.linearVelocity.y * 0.4f);
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -79,7 +72,6 @@ public class PlayerJump : MonoBehaviour
     {
         bool reached = ((lastVelocityY * rigidbody.linearVelocity.y) < 0);
         lastVelocityY = rigidbody.linearVelocity.y;
-
         return reached;
     }
 
@@ -108,9 +100,7 @@ public class PlayerJump : MonoBehaviour
     private float GetDistanceToGround()
     {
         RaycastHit2D[] hit = new RaycastHit2D[3];
-
         Physics2D.Raycast(transform.position, Vector2.down, filter, hit, 10);
-
         return hit[0].distance;
     }
 
@@ -118,16 +108,13 @@ public class PlayerJump : MonoBehaviour
     {
         if (powerUpCoroutine != null)
             StopCoroutine(powerUpCoroutine);
-
         powerUpCoroutine = StartCoroutine(JumpPowerUpCoroutine());
     }
 
     private IEnumerator JumpPowerUpCoroutine()
     {
         JumpHeight = originalJumpHeight * PowerUpJumpMultiplier;
-
         yield return new WaitForSeconds(PowerUpDuration);
-
         JumpHeight = originalJumpHeight;
     }
 

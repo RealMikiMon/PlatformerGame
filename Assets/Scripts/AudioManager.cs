@@ -17,23 +17,21 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        foreach (Sound S in Sounds)
+        foreach (Sound sound in Sounds)
         {
-            S.source = gameObject.AddComponent<AudioSource>();
-            S.source.clip = S.clip;
-
-            S.source.volume = S.volume;
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
         }
     }
 
     public void PlaySound (string name)
     {
-        Sound S = Array.Find(Sounds, Sound => Sound.name == name);
-        if (S == null) 
+        Sound sound = Array.Find(Sounds, Sound => Sound.name == name);
+        if (sound == null) 
         { 
             return; 
         }
-        S.source.Play();
+        sound.source.Play();
     }
 }
